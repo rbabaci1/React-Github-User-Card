@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './components/Header';
+import InputForm from './components/InputForm';
 
 export default class App extends Component {
   state = {
