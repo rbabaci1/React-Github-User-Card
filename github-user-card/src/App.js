@@ -5,33 +5,32 @@ import InputForm from './components/InputForm';
 
 export default class App extends Component {
   state = {
-    username: '',
     userData: {},
     followersData: []
   };
 
-  getUsername = username => this.setState({ username: username });
-
-  setUserData = async username => {
+  fetchUserData = async username => {
     const response = await fetch(`https://api.github.com/users/${username}`);
     const json = await response.json();
 
-    this.setState({ userData: json });
+    this.setUserData(json);
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.username !== this.state.username) {
+  setUserData = data => this.setState({ userData: data });
+
+  componentDidUpdate(...args) {
+    if (args[1].username !== this.state.username) {
       this.setUserData(this.state.username);
     }
   }
 
   render() {
-    console.log(this.state.userData);
+    console.log(this.state);
     return (
       <div className='App'>
         <Header />
 
-        <InputForm getUsername={this.getUsername} />
+        <InputForm fetchUserData={this.fetchUserData} />
       </div>
     );
   }
