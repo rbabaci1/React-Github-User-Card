@@ -20,7 +20,7 @@ export default class InputForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <h3>Enter username</h3>
+        <h3>Enter username:</h3>
 
         <div className='btn-input-div'>
           <button>

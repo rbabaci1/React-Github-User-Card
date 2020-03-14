@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
-
+import UserCard from './components/UserCard';
 export default class App extends Component {
   state = {
     userData: {},
