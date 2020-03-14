@@ -11,21 +11,30 @@ export default class InputForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    this.props.getUsername(this.state.username);
-    this.clearInputField();
+    if (this.state.username.length > 0) {
+      this.props.getUsername(this.state.username);
+      this.clearInputField();
+    }
   };
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input
-          type='text'
-          placeholder='...Username'
-          value={this.state.username}
-          onChange={this.handleChange}
-        />
+        <h3>Enter username</h3>
 
-        <button>Show profile</button>
+        <div className='btn-input-div'>
+          <button>
+            <span role='img' aria-label='search icon'>
+              🔍
+            </span>
+          </button>
+          <input
+            type='text'
+            placeholder='...Username'
+            value={this.state.username}
+            onChange={this.handleChange}
+          />
+        </div>
       </form>
     );
   }
