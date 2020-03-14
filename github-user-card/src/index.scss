@@ -94,6 +94,17 @@ code {
   }
 }
 
+.user-card {
+  border-bottom: 2px solid;
+  width: 90%;
+  margin: auto;
+
+  section {
+    width: fit-content;
+    margin: auto;
+  }
+}
+
 .followers-cards {
   display: flex;
   flex-flow: row wrap;

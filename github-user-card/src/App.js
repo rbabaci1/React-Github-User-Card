@@ -9,14 +9,21 @@ export default class App extends Component {
     followersData: []
   };
 
+  setUserData = data => this.setState({ userData: data });
+  setFollowersData = data => this.setState({ followersData: data });
+
   fetchUserData = async username => {
     const response = await fetch(`https://api.github.com/users/${username}`);
     const json = await response.json();
 
     this.setUserData(json);
   };
+  fetchFollowersData = async username => {
+    const response = await fetch(`https://api.github.com/users/${username}`);
+    const json = await response.json();
 
-  setUserData = data => this.setState({ userData: data });
+    this.setFollowersData(json);
+  };
 
   componentDidUpdate(...args) {
     if (args[1].username !== this.state.username) {
@@ -32,23 +39,14 @@ export default class App extends Component {
         <InputForm fetchUserData={this.fetchUserData} />
 
         <div className='user-card'>
-          {Object.keys(userData).length > 0 ? (
-            <UserCard userData={userData} />
-          ) : null}
+          <section>
+            {Object.keys(userData).length > 0 ? (
+              <UserCard userData={userData} />
+            ) : null}
+          </section>
         </div>
 
-        {/* <div className='followers-cards'>
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-          <UserCard />
-        </div> */}
+        <div className='followers-cards'></div>
       </div>
     );
   }
