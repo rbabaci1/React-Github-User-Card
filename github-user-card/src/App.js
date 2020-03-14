@@ -10,6 +10,9 @@ export default class App extends Component {
 
   getUserData = username => fetch(`https://api.github.com/users/${username}`);
 
+  getFollowersData = username =>
+    fetch(`https://api.github.com/users/${username}/followers`);
+
   render() {
     return (
       <div className='App'>
