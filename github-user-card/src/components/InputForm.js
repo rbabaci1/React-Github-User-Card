@@ -3,20 +3,21 @@ export default class InputForm extends Component {
   state = {
     username: ''
   };
-
-  initialState = this.state.username;
+  initialState = this.state;
 
   handleChange = event => this.setState({ username: event.target.value });
+  clearInputField = () => this.setState(this.initialState);
 
   handleSubmit = event => {
     event.preventDefault();
 
-    this.setState(this.initialState);
+    this.props.getUsername(this.state.username);
+    this.clearInputField();
   };
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <input
           type='text'
           placeholder='...Username'
@@ -24,7 +25,7 @@ export default class InputForm extends Component {
           onChange={this.handleChange}
         />
 
-        <button onSubmit={this.handleSubmit}>Show profile</button>
+        <button>Show profile</button>
       </form>
     );
   }
