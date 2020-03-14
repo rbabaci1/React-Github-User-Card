@@ -4,19 +4,28 @@ export default class InputForm extends Component {
     username: ''
   };
 
+  initialState = this.state.username;
+
   handleChange = event => this.setState({ username: event.target.value });
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    this.setState(this.initialState);
+  };
 
   render() {
     return (
-      <div className='input-form'>
+      <form>
         <input
           type='text'
           placeholder='...Username'
           value={this.state.username}
+          onChange={this.handleChange}
         />
 
-        <button>Show profile</button>
-      </div>
+        <button onSubmit={this.handleSubmit}>Show profile</button>
+      </form>
     );
   }
 }
