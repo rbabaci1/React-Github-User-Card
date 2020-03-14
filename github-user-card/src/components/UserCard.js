@@ -11,6 +11,7 @@ import {
 } from 'reactstrap';
 
 export default function UserCard({ userData }) {
+  console.log(userData);
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 
@@ -41,11 +42,28 @@ export default function UserCard({ userData }) {
           </Button>
 
           <Collapse isOpen={collapse} onEntered={onEntered} onExited={onExited}>
-            <CardSubtitle>Card subtitle</CardSubtitle>
-            <CardText>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </CardText>
+            <p>
+              <span>Location: {userData.location}</span>{' '}
+            </p>
+
+            <p>
+              <span>Profile: </span>
+              <a href={userData.html_url} target='blank'>
+                GitHub page
+              </a>{' '}
+            </p>
+
+            <p>
+              <span>Followers: {userData.followers}</span>
+            </p>
+
+            <p>
+              <span>Following: {userData.following}</span>
+            </p>
+
+            <p>
+              <span>Bio: {userData.bio}</span>
+            </p>
           </Collapse>
         </CardBody>
       </Card>

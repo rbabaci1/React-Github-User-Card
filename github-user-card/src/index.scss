@@ -110,7 +110,11 @@ code {
     }
 
     .card-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       background: rgb(245, 237, 224);
+
       .label {
         font-weight: 600;
         margin-right: 8px;
@@ -118,21 +122,21 @@ code {
       }
 
       .card-title {
-        font-size: 28px;
         font-family: 'Ubuntu';
         margin: 0 0 -6px 0;
         color: #ac7017;
         letter-spacing: -0.6px;
+        font-size: 24px;
       }
       .username {
-        font-size: 24px;
-        margin-right: 25px;
         color: #ac7017;
+        font-size: 24px;
       }
       .btn-info {
         margin-bottom: 20px;
         font-weight: 500;
         width: 100px;
+        align-self: center;
       }
       .show,
       .collapse {
