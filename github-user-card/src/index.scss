@@ -7,8 +7,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+$mainColor: #24292e;
 .App {
-  background-color: #24292e;
+  // background-color: $mainColor;
   height: 100vh;
   color: #fff;
 }
