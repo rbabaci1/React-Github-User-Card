@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default function InputForm() {
-  return (
-    <div>
-      <h1>Test</h1>
-    </div>
-  );
+export default class InputForm extends Component {
+  render() {
+    return (
+      <div className='input-form'>
+        <input type='text' placeholder='...GitHub username' />
+      </div>
+    );
+  }
 }
