@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 
 export default function UserCard({ userData }) {
-  console.log(userData);
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 
@@ -24,12 +23,19 @@ export default function UserCard({ userData }) {
       <Card>
         <CardImg
           top
-          src='https://cdn.pixabay.com/photo/2020/03/07/11/54/the-fog-4909513_960_720.jpg'
+          src={userData.avatar_url}
           alt='Card image cap'
           width='300px'
         />
         <CardBody>
-          <CardTitle>Card title</CardTitle>
+          <CardTitle>
+            <span className='label'>name:</span>
+            {userData.name}
+          </CardTitle>
+          <p className='username'>
+            <span className='label'>username:</span>
+            {userData.login}
+          </p>
           <Button color='info' onClick={toggle}>
             {status}
           </Button>
