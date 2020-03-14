@@ -7,11 +7,11 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button,
-  UncontrolledCollapse
+  Button
 } from 'reactstrap';
 
-export default function UserCard() {
+export default function UserCard({ userData }) {
+  console.log(userData);
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 

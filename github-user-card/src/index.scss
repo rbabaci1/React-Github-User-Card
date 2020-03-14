@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-image: linear-gradient(#0f2027, #203a43, #2c5364);
 }
 
 code {
@@ -14,9 +16,9 @@ code {
 
 .App {
   text-align: center;
-  height: 100vh;
   color: #fff;
-  background-image: linear-gradient(#0f2027, #203a43, #2c5364);
+  // background-image: linear-gradient(#0f2027, #203a43, #2c5364);
+  // height: 100%;
 
   .header {
     box-shadow: 0px 15px 10px -15px #111;
@@ -92,10 +94,17 @@ code {
   }
 }
 
+.followers-cards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 .card-container {
   .card {
     width: 300px;
     color: black;
+    margin: 20px;
 
     .card-body {
       background: rgb(245, 237, 224);

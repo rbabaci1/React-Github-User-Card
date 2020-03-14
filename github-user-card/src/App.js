@@ -25,16 +25,30 @@ export default class App extends Component {
   }
 
   render() {
-    console.log(this.state);
+    const { userData } = this.state;
     return (
       <div className='App'>
         <Header />
-
         <InputForm fetchUserData={this.fetchUserData} />
 
         <div className='user-card'>
-          <UserCard />
+          {Object.keys(userData).length > 0 ? (
+            <UserCard userData={userData} />
+          ) : null}
         </div>
+
+        {/* <div className='followers-cards'>
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+        </div> */}
       </div>
     );
   }
