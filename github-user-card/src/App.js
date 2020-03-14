@@ -4,12 +4,10 @@ import Header from './components/Header';
 
 export default class App extends Component {
   state = {
-    userInfo: {}
+    userData: {}
   };
 
-  getUserInfo = username => {
-    return fetch(`https://api.github.com/users/${username}`);
-  };
+  getUserData = username => fetch(`https://api.github.com/users/${username}`);
 
   render() {
     return (
