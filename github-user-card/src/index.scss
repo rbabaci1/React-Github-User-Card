@@ -98,14 +98,18 @@ code {
     color: black;
 
     .card-body {
+      background: rgb(245, 237, 224);
+
       .card-title {
         font-weight: 600;
         font-size: 26px;
         font-family: 'Ubuntu';
-        color: #ad8322;
+        color: #6c7271;
       }
-      #toggler {
+      .btn-info {
         margin-bottom: 20px;
+        font-weight: 500;
+        width: 100px;
       }
       .show,
       .collapse {

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
+  Collapse,
   Card,
   CardImg,
   CardText,
@@ -11,6 +12,13 @@ import {
 } from 'reactstrap';
 
 export default function UserCard() {
+  const [collapse, setCollapse] = useState(false);
+  const [status, setStatus] = useState('Show Info');
+
+  const onEntered = () => setStatus('Hide Info');
+  const onExited = () => setStatus('Show Info');
+  const toggle = () => setCollapse(!collapse);
+
   return (
     <div className='card-container'>
       <Card>
@@ -22,17 +30,17 @@ export default function UserCard() {
         />
         <CardBody>
           <CardTitle>Card title</CardTitle>
-          <Button color='primary' id='toggler'>
-            More info
+          <Button color='info' onClick={toggle}>
+            {status}
           </Button>
 
-          <UncontrolledCollapse toggler='#toggler'>
+          <Collapse isOpen={collapse} onEntered={onEntered} onExited={onExited}>
             <CardSubtitle>Card subtitle</CardSubtitle>
             <CardText>
               Some quick example text to build on the card title and make up the
               bulk of the card's content.
             </CardText>
-          </UncontrolledCollapse>
+          </Collapse>
         </CardBody>
       </Card>
     </div>
