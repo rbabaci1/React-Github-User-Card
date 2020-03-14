@@ -12,7 +12,7 @@ export default class InputForm extends Component {
     event.preventDefault();
 
     if (this.state.username.length > 0) {
-      this.props.fetchUserData(this.state.username);
+      this.props.setUserData(this.state.username);
       this.clearInputField();
     }
   };

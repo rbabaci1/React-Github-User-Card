@@ -3,15 +3,12 @@ import {
   Collapse,
   Card,
   CardImg,
-  CardText,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Button
 } from 'reactstrap';
 
-export default function UserCard({ userData }) {
-  console.log(userData);
+export default function UserCard({ userData, fetchFollowersData }) {
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 
@@ -41,7 +38,9 @@ export default function UserCard({ userData }) {
             <Button color='info' onClick={toggle}>
               {status}
             </Button>
-            <Button color='danger'>Followers</Button>
+            <Button color='danger' onClick={fetchFollowersData}>
+              Followers
+            </Button>
           </div>
 
           <Collapse isOpen={collapse} onEntered={onEntered} onExited={onExited}>
