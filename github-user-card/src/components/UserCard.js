@@ -37,13 +37,16 @@ export default function UserCard({ userData }) {
             <span className='label'>username:</span>
             {userData.login}
           </p>
-          <Button color='info' onClick={toggle}>
-            {status}
-          </Button>
+          <div className='buttons'>
+            <Button color='info' onClick={toggle}>
+              {status}
+            </Button>
+            <Button color='danger'>Followers</Button>
+          </div>
 
           <Collapse isOpen={collapse} onEntered={onEntered} onExited={onExited}>
             <p>
-              <span>Location: {userData.location}</span>{' '}
+              <span>Location: </span> {userData.location}
             </p>
 
             <p>
@@ -54,15 +57,18 @@ export default function UserCard({ userData }) {
             </p>
 
             <p>
-              <span>Followers: {userData.followers}</span>
+              <span>Followers: </span>
+              {userData.followers}
             </p>
 
             <p>
-              <span>Following: {userData.following}</span>
+              <span>Following: </span>
+              {userData.following}
             </p>
 
             <p>
-              <span>Bio: {userData.bio}</span>
+              <span>Bio: </span>
+              {userData.bio}
             </p>
           </Collapse>
         </CardBody>

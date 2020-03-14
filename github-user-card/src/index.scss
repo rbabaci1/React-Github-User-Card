@@ -105,6 +105,8 @@ code {
     width: 300px;
     color: black;
     margin: 20px;
+    border: none;
+
     img {
       height: 250px;
     }
@@ -132,16 +134,45 @@ code {
         color: #ac7017;
         font-size: 24px;
       }
-      .btn-info {
+      .buttons {
         margin-bottom: 20px;
-        font-weight: 500;
-        width: 100px;
-        align-self: center;
+
+        button {
+          font-weight: 500;
+          width: 110px;
+          align-self: center;
+          background: #1997aa;
+          font-size: 18px;
+
+          &:hover {
+            background: darken($color: #1997aa, $amount: 10);
+          }
+        }
+
+        .btn-danger {
+          border-color: #1997aa;
+          width: fit-content;
+          margin-left: 20px;
+        }
       }
-      .show,
+
       .collapse {
-        transition: 2s;
         text-align: start;
+        background-color: #1b313a;
+        padding: 10px;
+        border-radius: 10px;
+
+        p {
+          margin: 3px 0;
+          color: wheat;
+
+          span {
+            font-weight: bold;
+            color: #f1e8e2;
+            font-family: 'Ubuntu';
+            letter-spacing: 0.5px;
+          }
+        }
       }
     }
   }
