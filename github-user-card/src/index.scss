@@ -98,13 +98,19 @@ code {
     color: black;
 
     .card-body {
-      text-align: start;
-
       .card-title {
         font-weight: 600;
         font-size: 26px;
         font-family: 'Ubuntu';
         color: #ad8322;
+      }
+      #toggler {
+        margin-bottom: 20px;
+      }
+      .show,
+      .collapse {
+        transition: 2s;
+        text-align: start;
       }
     }
   }

@@ -6,7 +6,8 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  Button
+  Button,
+  UncontrolledCollapse
 } from 'reactstrap';
 
 export default function UserCard() {
@@ -21,12 +22,17 @@ export default function UserCard() {
         />
         <CardBody>
           <CardTitle>Card title</CardTitle>
-          <CardSubtitle>Card subtitle</CardSubtitle>
-          <CardText>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </CardText>
-          <Button color='primary'>Button</Button>
+          <Button color='primary' id='toggler'>
+            More info
+          </Button>
+
+          <UncontrolledCollapse toggler='#toggler'>
+            <CardSubtitle>Card subtitle</CardSubtitle>
+            <CardText>
+              Some quick example text to build on the card title and make up the
+              bulk of the card's content.
+            </CardText>
+          </UncontrolledCollapse>
         </CardBody>
       </Card>
     </div>
