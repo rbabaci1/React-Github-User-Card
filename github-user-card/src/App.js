@@ -31,6 +31,10 @@ export default class App extends Component {
         <Header />
 
         <InputForm fetchUserData={this.fetchUserData} />
+
+        <div className='user-card'>
+          <UserCard />
+        </div>
       </div>
     );
   }

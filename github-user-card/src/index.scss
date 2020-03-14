@@ -91,3 +91,21 @@ code {
     }
   }
 }
+
+.card-container {
+  .card {
+    width: 300px;
+    color: black;
+
+    .card-body {
+      text-align: start;
+
+      .card-title {
+        font-weight: 600;
+        font-size: 26px;
+        font-family: 'Ubuntu';
+        color: #ad8322;
+      }
+    }
+  }
+}
