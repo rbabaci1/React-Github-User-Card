@@ -41,6 +41,7 @@ export default class App extends Component {
 
     return followersList;
   };
+
   // 4) get the data for each follower in the list returned from  (3)
   fetchFollowersData = () =>
     this.fetchFollowers()
@@ -66,6 +67,16 @@ export default class App extends Component {
     if (prevState.userData.login !== this.state.userData.login) {
       this.setUserData(this.state.userData.login);
     }
+  }
+
+  shouldComponentUpdate(...args) {
+    const nextState = args[1];
+
+    // Do not render until the FollowersData list is fully collected
+    if (nextState.fetchFollowers.length === this.state.userData.followers) {
+      return true;
+    }
+    return false;
   }
 
   render() {
