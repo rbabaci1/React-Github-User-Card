@@ -58,6 +58,10 @@ export default class App extends Component {
     }
   }
 
+  routeFollower = userData => {
+    this.setState({ userData: userData, followersData: [] });
+  };
+
   render() {
     const { userData, followersData } = this.state;
 
