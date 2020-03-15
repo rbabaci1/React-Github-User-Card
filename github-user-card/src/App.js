@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
+import { Route, Link } from 'react-router-dom';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
