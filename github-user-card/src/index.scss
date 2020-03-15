@@ -145,29 +145,22 @@ code {
         color: #ac7017;
         font-size: 24px;
       }
-      .buttons {
+
+      .btn-info {
         margin-bottom: 20px;
+        font-weight: 500;
+        width: 110px;
+        align-self: center;
+        background: #1997aa;
+        font-size: 18px;
 
-        button {
-          font-weight: 500;
-          width: 110px;
-          align-self: center;
-          background: #1997aa;
-          font-size: 18px;
-
-          &:hover {
-            background: darken($color: #1997aa, $amount: 10);
-          }
-        }
-
-        .btn-danger {
-          border-color: #1997aa;
-          width: fit-content;
-          margin-left: 20px;
+        &:hover {
+          background: darken($color: #1997aa, $amount: 10);
         }
       }
 
       .collapse {
+        width: 100%;
         text-align: start;
         background-color: #1b313a;
         padding: 10px;

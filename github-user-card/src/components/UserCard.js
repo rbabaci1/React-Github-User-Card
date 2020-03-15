@@ -34,14 +34,10 @@ export default function UserCard({ userData, fetchFollowersData }) {
             <span className='label'>username:</span>
             {userData.login}
           </p>
-          <div className='buttons'>
-            <Button color='info' onClick={toggle}>
-              {status}
-            </Button>
-            <Button color='danger' onClick={fetchFollowersData}>
-              Followers
-            </Button>
-          </div>
+
+          <Button color='info' onClick={toggle}>
+            {status}
+          </Button>
 
           <Collapse isOpen={collapse} onEntered={onEntered} onExited={onExited}>
             <p>
