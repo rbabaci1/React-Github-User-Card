@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
+import UserCard from './components/UserCard';
 import FollowerCard from './components/FollowerCard';
+
 export default class App extends Component {
   state = {
     userData: {},
@@ -62,13 +63,9 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <div className='under-logo'>
-          <InputForm setUserData={this.setUserData} />
 
-          {Object.keys(userData).length > 0 > 0 && (
-            <Button className='followers-btn'>Followers</Button>
-          )}
-        </div>
+        <InputForm setUserData={this.setUserData} />
+
         <div className='user-card'>
           <section>
             {Object.keys(userData).length > 0 ? (

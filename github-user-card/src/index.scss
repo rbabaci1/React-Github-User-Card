@@ -91,26 +91,19 @@ code {
     }
   }
 
-  .under-logo {
-    text-align: start;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+  // .followers-btn {
+  //     margin-left: 20px;
+  //     font-weight: 500;
+  //     width: 110px;
+  //     font-size: 18px;
+  //     height: fit-content;
+  //     background: #50480d;
+  //     border-radius: 0;
 
-    .followers-btn {
-      margin-left: 20px;
-      font-weight: 500;
-      width: 110px;
-      font-size: 18px;
-      height: fit-content;
-      background: #50480d;
-      border-radius: 0;
-
-      &:hover {
-        background: darken($color: #50480d, $amount: 5);
-      }
-    }
-  }
+  //     &:hover {
+  //       background: darken($color: #50480d, $amount: 5);
+  //     }
+  //   }
 }
 
 .user-card {
