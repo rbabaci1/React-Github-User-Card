@@ -8,7 +8,7 @@ import {
   Button
 } from 'reactstrap';
 
-export default function UserCard({ userData }) {
+export default function UserCard({ userData, renderFollowerAsUser }) {
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 
@@ -22,7 +22,7 @@ export default function UserCard({ userData }) {
 
   return (
     <div className='card-container'>
-      <Card>
+      <Card onClick={renderFollowerAsUser()}>
         <CardImg
           top
           src={userData.avatar_url}
