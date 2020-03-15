@@ -41,7 +41,7 @@ code {
     align-items: center;
 
     h3 {
-      margin: 0 20px;
+      margin-right: 20px;
       font-family: -webkit-pictograph;
       letter-spacing: 1px;
     }
@@ -65,7 +65,7 @@ code {
 
         span {
           padding: 0 10px;
-          border-right: 2px solid;
+          border-right: 1px solid #e1b4a4;
 
           &:hover {
             color: #fff;
@@ -90,30 +90,84 @@ code {
       }
     }
   }
+  .under-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 15px 10px -15px #111;
 
-  // .followers-btn {
-  //     margin-left: 20px;
-  //     font-weight: 500;
-  //     width: 110px;
-  //     font-size: 18px;
-  //     height: fit-content;
-  //     background: #50480d;
-  //     border-radius: 0;
+    .followers-btn {
+      margin-left: 20px;
+      font-weight: 500;
+      width: 150px;
+      font-size: 18px;
+      height: fit-content;
+      background: #50480d;
+      border-radius: 0;
 
-  //     &:hover {
-  //       background: darken($color: #50480d, $amount: 5);
-  //     }
-  //   }
+      &:hover {
+        background: darken($color: #50480d, $amount: 5);
+      }
+    }
+  }
 }
 
 .user-card {
-  border-bottom: 2px solid;
-  width: 90%;
-  margin: auto;
+  display: flex;
+  align-items: center;
+  height: 250px;
+  margin: 0 20px;
+  box-shadow: 0px 15px 10px -15px #111;
 
-  section {
-    width: fit-content;
-    margin: auto;
+  img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .info {
+    text-align: start;
+    margin: 0 20px;
+
+    h4 {
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin: 0;
+      color: rgb(241, 206, 139);
+    }
+    p {
+      margin: 0;
+      color: rgb(231, 248, 198);
+      font-size: 20px;
+
+      span {
+        font-weight: bold;
+        color: #f1e8e2;
+        font-family: 'Ubuntu';
+        letter-spacing: 0.7px;
+        font-size: 18px;
+      }
+      a {
+        text-decoration: underline;
+        &:hover {
+          color: #0769d1;
+        }
+      }
+    }
+  }
+  @media (max-width: 815px) {
+    flex-direction: column;
+    height: 100%;
+
+    img {
+      width: 280px;
+      height: 280px;
+      border-bottom-right-radius: 50px;
+      border-bottom-left-radius: 50px;
+    }
+    .info h4 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
   }
 }
 

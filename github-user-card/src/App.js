@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
@@ -22,7 +23,7 @@ export default class App extends Component {
   setUserData = username => {
     this.fetchUserData(username)
       .then(data => {
-        this.setState({ userData: data, followerData: [] });
+        this.setState({ userData: data, followersData: [] });
       })
       .catch(error => console.error(error));
   };
@@ -64,20 +65,17 @@ export default class App extends Component {
       <div className='App'>
         <Header />
 
-        <InputForm setUserData={this.setUserData} />
+        <div className='under-logo'>
+          <InputForm setUserData={this.setUserData} />
 
-        <div className='user-card'>
-          <section>
-            {Object.keys(userData).length > 0 ? (
-              <>
-                <FollowerCard
-                  userData={userData}
-                  // fetchFollowersData={this.fetchFollowersData}
-                />
-              </>
-            ) : null}
-          </section>
+          {Object.keys(userData).length > 0 && (
+            <Button onClick={this.fetchFollowersData} className='followers-btn'>
+              Show followers
+            </Button>
+          )}
         </div>
+
+        {Object.keys(userData).length > 0 && <UserCard userData={userData} />}
 
         <div className='followers-cards'>
           {followersData.map(follower => (
