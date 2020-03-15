@@ -188,81 +188,77 @@ code {
   flex-flow: row wrap;
   justify-content: center;
 
-  a {
-    &:hover {
-      text-decoration: none;
-    }
+  .card-container {
+    .card {
+      width: 300px;
+      color: black;
+      margin: 20px;
+      border: none;
+      transition-duration: 0.5s;
+      cursor: pointer;
 
-    .card-container {
-      .card {
-        width: 300px;
-        color: black;
-        margin: 20px;
-        border: none;
+      &:hover {
+        transform: scale(1.06);
+        box-shadow: 0px 0px 7px 1px rgb(216, 184, 40);
+      }
 
-        &:hover {
-          transition: 0.5s;
-          transform: scale(1.05);
+      img {
+        height: 250px;
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        background: rgb(245, 237, 224);
+
+        .label {
+          font-weight: 600;
+          margin-right: 8px;
+          color: #4d6672;
         }
 
-        img {
-          height: 250px;
+        .card-title {
+          font-family: 'Ubuntu';
+          margin: 0 0 -6px 0;
+          color: #ac7017;
+          letter-spacing: -0.6px;
+          font-size: 22px;
+        }
+        .username {
+          color: #ac7017;
+          font-size: 22px;
         }
 
-        .card-body {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          background: rgb(245, 237, 224);
+        .btn-info {
+          margin-bottom: 20px;
+          font-weight: 500;
+          width: 110px;
+          align-self: center;
+          background: #1997aa;
+          font-size: 18px;
 
-          .label {
-            font-weight: 600;
-            margin-right: 8px;
-            color: #4d6672;
+          &:hover {
+            background: darken($color: #1997aa, $amount: 10);
           }
+        }
 
-          .card-title {
-            font-family: 'Ubuntu';
-            margin: 0 0 -6px 0;
-            color: #ac7017;
-            letter-spacing: -0.6px;
-            font-size: 24px;
-          }
-          .username {
-            color: #ac7017;
-            font-size: 24px;
-          }
+        .collapse {
+          width: 100%;
+          text-align: start;
+          background-color: #1b313a;
+          padding: 10px;
+          border-radius: 10px;
 
-          .btn-info {
-            margin-bottom: 20px;
-            font-weight: 500;
-            width: 110px;
-            align-self: center;
-            background: #1997aa;
-            font-size: 18px;
+          p {
+            margin: 3px 0;
+            color: wheat;
 
-            &:hover {
-              background: darken($color: #1997aa, $amount: 10);
-            }
-          }
-
-          .collapse {
-            width: 100%;
-            text-align: start;
-            background-color: #1b313a;
-            padding: 10px;
-            border-radius: 10px;
-
-            p {
-              margin: 3px 0;
-              color: wheat;
-
-              span {
-                font-weight: bold;
-                color: #f1e8e2;
-                font-family: 'Ubuntu';
-                letter-spacing: 0.5px;
-              }
+            span {
+              font-weight: bold;
+              color: #f1e8e2;
+              font-family: 'Ubuntu';
+              letter-spacing: 0.5px;
             }
           }
         }

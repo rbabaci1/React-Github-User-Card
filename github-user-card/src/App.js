@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button } from 'reactstrap';
-import { Route, Link } from 'react-router-dom';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
@@ -76,15 +75,11 @@ export default class App extends Component {
           )}
         </div>
 
-        {Object.keys(userData).length > 0 && (
-          <Route path='/' render={() => <UserCard userData={userData} />} />
-        )}
+        {Object.keys(userData).length > 0 && <UserCard userData={userData} />}
 
         <div className='followers-cards'>
           {followersData.map(follower => (
-            <Link to='/follower'>
-              <FollowerCard key={follower.id} userData={follower} />
-            </Link>
+            <FollowerCard key={follower.id} userData={follower} />
           ))}
         </div>
       </div>
