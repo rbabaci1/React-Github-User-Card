@@ -14,7 +14,11 @@ export default function UserCard({ userData }) {
 
   const onEntered = () => setStatus('Hide Info');
   const onExited = () => setStatus('Show Info');
-  const toggle = () => setCollapse(!collapse);
+  const toggle = event => {
+    event.preventDefault();
+    event.stopPropagation();
+    setCollapse(!collapse);
+  };
 
   return (
     <div className='card-container'>

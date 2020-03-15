@@ -76,11 +76,15 @@ export default class App extends Component {
           )}
         </div>
 
-        {Object.keys(userData).length > 0 && <UserCard userData={userData} />}
+        {Object.keys(userData).length > 0 && (
+          <Route path='/' render={() => <UserCard userData={userData} />} />
+        )}
 
         <div className='followers-cards'>
           {followersData.map(follower => (
-            <FollowerCard key={follower.id} userData={follower} />
+            <Link to='/follower'>
+              <FollowerCard key={follower.id} userData={follower} />
+            </Link>
           ))}
         </div>
       </div>

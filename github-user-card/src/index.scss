@@ -41,7 +41,7 @@ code {
     align-items: center;
 
     h3 {
-      margin-right: 20px;
+      margin: 0 20px 0 20px;
       font-family: -webkit-pictograph;
       letter-spacing: 1px;
     }
@@ -93,7 +93,6 @@ code {
   .under-logo {
     display: flex;
     align-items: center;
-    justify-content: center;
     box-shadow: 0px 15px 10px -15px #111;
     flex-wrap: wrap;
 
@@ -188,72 +187,83 @@ code {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-}
 
-.card-container {
-  .card {
-    width: 300px;
-    color: black;
-    margin: 20px;
-    border: none;
-
-    img {
-      height: 250px;
+  a {
+    &:hover {
+      text-decoration: none;
     }
 
-    .card-body {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      background: rgb(245, 237, 224);
-
-      .label {
-        font-weight: 600;
-        margin-right: 8px;
-        color: #4d6672;
-      }
-
-      .card-title {
-        font-family: 'Ubuntu';
-        margin: 0 0 -6px 0;
-        color: #ac7017;
-        letter-spacing: -0.6px;
-        font-size: 24px;
-      }
-      .username {
-        color: #ac7017;
-        font-size: 24px;
-      }
-
-      .btn-info {
-        margin-bottom: 20px;
-        font-weight: 500;
-        width: 110px;
-        align-self: center;
-        background: #1997aa;
-        font-size: 18px;
+    .card-container {
+      .card {
+        width: 300px;
+        color: black;
+        margin: 20px;
+        border: none;
 
         &:hover {
-          background: darken($color: #1997aa, $amount: 10);
+          transition: 0.5s;
+          transform: scale(1.05);
         }
-      }
 
-      .collapse {
-        width: 100%;
-        text-align: start;
-        background-color: #1b313a;
-        padding: 10px;
-        border-radius: 10px;
+        img {
+          height: 250px;
+        }
 
-        p {
-          margin: 3px 0;
-          color: wheat;
+        .card-body {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          background: rgb(245, 237, 224);
 
-          span {
-            font-weight: bold;
-            color: #f1e8e2;
+          .label {
+            font-weight: 600;
+            margin-right: 8px;
+            color: #4d6672;
+          }
+
+          .card-title {
             font-family: 'Ubuntu';
-            letter-spacing: 0.5px;
+            margin: 0 0 -6px 0;
+            color: #ac7017;
+            letter-spacing: -0.6px;
+            font-size: 24px;
+          }
+          .username {
+            color: #ac7017;
+            font-size: 24px;
+          }
+
+          .btn-info {
+            margin-bottom: 20px;
+            font-weight: 500;
+            width: 110px;
+            align-self: center;
+            background: #1997aa;
+            font-size: 18px;
+
+            &:hover {
+              background: darken($color: #1997aa, $amount: 10);
+            }
+          }
+
+          .collapse {
+            width: 100%;
+            text-align: start;
+            background-color: #1b313a;
+            padding: 10px;
+            border-radius: 10px;
+
+            p {
+              margin: 3px 0;
+              color: wheat;
+
+              span {
+                font-weight: bold;
+                color: #f1e8e2;
+                font-family: 'Ubuntu';
+                letter-spacing: 0.5px;
+              }
+            }
           }
         }
       }
