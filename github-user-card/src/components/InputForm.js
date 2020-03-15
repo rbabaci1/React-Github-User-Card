@@ -28,6 +28,7 @@ export default class InputForm extends Component {
               🔍
             </span>
           </button>
+
           <input
             type='text'
             placeholder='...Username'

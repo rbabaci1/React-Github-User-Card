@@ -22,13 +22,18 @@ export default function UserCard({ userData, renderFollowerAsUser }) {
 
   return (
     <div className='card-container'>
-      <Card onClick={renderFollowerAsUser()}>
+      <Card
+        onClick={() => {
+          renderFollowerAsUser(userData);
+        }}
+      >
         <CardImg
           top
           src={userData.avatar_url}
           alt='Card image cap'
           width='300px'
         />
+
         <CardBody>
           <CardTitle>
             <span className='label'>name:</span>
@@ -38,7 +43,6 @@ export default function UserCard({ userData, renderFollowerAsUser }) {
             <span className='label'>username:</span>
             {userData.login}
           </p>
-
           <Button color='info' onClick={toggle}>
             {status}
           </Button>
@@ -47,24 +51,20 @@ export default function UserCard({ userData, renderFollowerAsUser }) {
             <p>
               <span>Location: </span> {userData.location}
             </p>
-
             <p>
               <span>Profile: </span>
               <a href={userData.html_url} target='blank'>
                 GitHub page
               </a>{' '}
             </p>
-
             <p>
               <span>Followers: </span>
               {userData.followers}
             </p>
-
             <p>
               <span>Following: </span>
               {userData.following}
             </p>
-
             <p>
               <span>Bio: </span>
               {userData.bio}

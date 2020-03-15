@@ -9,53 +9,64 @@ import FollowerCard from './components/FollowerCard';
 export default class App extends Component {
   state = {
     userData: {},
-    followersData: []
+    followersData: [],
+    dataReceived: true
   };
 
   // 1) get the inputted username data
   fetchUserData = async username => {
     const response = await fetch(`https://api.github.com/users/${username}`);
-    const json = await response.json();
+    const userInfo = await response.json();
 
-    return json;
+    return userInfo;
   };
   // 2) set the userData with the fetched data from  (1)
   setUserData = username => {
     this.fetchUserData(username)
-      .then(data => this.setState({ userData: data, followersData: [] }))
+      .then(userInfo =>
+        userInfo.login
+          ? this.setState({
+              userData: userInfo,
+              dataReceived: true
+            })
+          : this.setState({ dataReceived: false })
+      )
       .catch(error => console.error(error));
   };
 
   // 3) get the followers list
   fetchFollowers = async () => {
     const response = await fetch(this.state.userData.followers_url);
-    const json = await response.json();
+    const followersList = await response.json();
 
-    return json;
+    return followersList;
   };
   // 4) get the data for each follower in the list returned from  (3)
-  fetchFollowersData = () => {
+  fetchFollowersData = () =>
     this.fetchFollowers()
-      .then(list => list.map(item => this.setFollowersData(item.login)))
+      .then(followersList =>
+        followersList.map(follower => this.setFollowersData(follower.login))
+      )
       .catch(error => console.error(error));
-  };
+
   // 5) set the followersData with the fetch data of each follower from  (4)
-  setFollowersData = followerUsername => {
+  setFollowersData = followerUsername =>
     this.fetchUserData(followerUsername).then(followerData =>
       this.setState({
         followersData: [...this.state.followersData, followerData]
       })
     );
-  };
-
-  componentDidUpdate(...args) {
-    if (args[1].username !== this.state.username) {
-      this.setUserData(this.state.username);
-    }
-  }
 
   renderFollowerAsUser = followerData =>
     this.setState({ userData: followerData, followersData: [] });
+
+  componentDidUpdate(...args) {
+    const prevState = args[1];
+
+    if (prevState.userData.login !== this.state.userData.login) {
+      this.setUserData(this.state.userData.login);
+    }
+  }
 
   render() {
     const { userData, followersData } = this.state;
@@ -73,6 +84,12 @@ export default class App extends Component {
             </Button>
           )}
         </div>
+
+        {!this.state.dataReceived && (
+          <span className='server-error'>
+            The server is down, please try again later!
+          </span>
+        )}
 
         {Object.keys(userData).length > 0 && <UserCard userData={userData} />}
 
