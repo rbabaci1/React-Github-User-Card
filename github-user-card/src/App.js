@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
@@ -61,15 +62,22 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header />
-        <InputForm setUserData={this.setUserData} />
+        <div className='under-logo'>
+          <InputForm setUserData={this.setUserData} />
 
+          {Object.keys(userData).length > 0 > 0 && (
+            <Button className='followers-btn'>Followers</Button>
+          )}
+        </div>
         <div className='user-card'>
           <section>
             {Object.keys(userData).length > 0 ? (
-              <UserCard
-                userData={userData}
-                fetchFollowersData={this.fetchFollowersData}
-              />
+              <>
+                <UserCard
+                  userData={userData}
+                  // fetchFollowersData={this.fetchFollowersData}
+                />
+              </>
             ) : null}
           </section>
         </div>

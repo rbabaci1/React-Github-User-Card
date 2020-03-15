@@ -17,8 +17,6 @@ code {
 .App {
   text-align: center;
   color: #fff;
-  // background-image: linear-gradient(#0f2027, #203a43, #2c5364);
-  // height: 100%;
 
   .header {
     box-shadow: 0px 15px 10px -15px #111;
@@ -89,6 +87,27 @@ code {
 
       h3 {
         margin-top: 20px;
+      }
+    }
+  }
+
+  .under-logo {
+    text-align: start;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .followers-btn {
+      margin-left: 20px;
+      font-weight: 500;
+      width: 110px;
+      font-size: 18px;
+      height: fit-content;
+      background: #50480d;
+      border-radius: 0;
+
+      &:hover {
+        background: darken($color: #50480d, $amount: 5);
       }
     }
   }
