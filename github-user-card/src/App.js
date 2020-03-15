@@ -3,7 +3,7 @@ import { Button } from 'reactstrap';
 
 import Header from './components/Header';
 import InputForm from './components/InputForm';
-import UserCard from './components/UserCard';
+import FollowerCard from './components/FollowerCard';
 export default class App extends Component {
   state = {
     userData: {},
@@ -73,7 +73,7 @@ export default class App extends Component {
           <section>
             {Object.keys(userData).length > 0 ? (
               <>
-                <UserCard
+                <FollowerCard
                   userData={userData}
                   // fetchFollowersData={this.fetchFollowersData}
                 />
@@ -84,7 +84,7 @@ export default class App extends Component {
 
         <div className='followers-cards'>
           {followersData.map(follower => (
-            <UserCard key={follower.id} userData={follower} />
+            <FollowerCard key={follower.id} userData={follower} />
           ))}
         </div>
       </div>
