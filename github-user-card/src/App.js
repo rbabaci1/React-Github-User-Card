@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
 
+import { Button } from 'reactstrap';
 import Header from './components/Header';
 import InputForm from './components/InputForm';
 import UserCard from './components/UserCard';
@@ -76,9 +76,27 @@ export default class App extends Component {
     }
   }
 
+  // do not render if followersData list not fully collected
+  shouldComponentUpdate(...args) {
+    const nextState = args[1];
+    const currUserDataNum = Object.keys(this.state.userData).length;
+    const nextFollowersNum = nextState.followersData.length;
+    const currFollowersNum = this.state.userData.followers;
+
+    if (currUserDataNum > 0 && nextFollowersNum < currFollowersNum) {
+      if (nextFollowersNum === 0 || nextFollowersNum === currFollowersNum) {
+        return true;
+      }
+
+      return false;
+    }
+
+    return true;
+  }
+
   render() {
     const { userData, followersData } = this.state;
-
+    console.log('render in App');
     return (
       <div className='App'>
         <Header />
