@@ -96,7 +96,7 @@ export default class App extends Component {
 
   render() {
     const { userData, followersData } = this.state;
-    console.log('render in App');
+
     return (
       <div className='App'>
         <Header />

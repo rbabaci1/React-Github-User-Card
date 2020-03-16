@@ -14,6 +14,7 @@ export default function FollowerCard({ userData, renderFollowerAsUser }) {
 
   const onEntered = () => setStatus('Hide Info');
   const onExited = () => setStatus('Show Info');
+
   const toggle = event => {
     event.preventDefault();
     event.stopPropagation();

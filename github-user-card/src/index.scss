@@ -110,7 +110,7 @@ code {
       font-size: 18px;
       height: fit-content;
       background: #50480d;
-      border-radius: 0;
+      border-radius: 2px;
 
       &:hover {
         background: darken($color: #50480d, $amount: 5);
@@ -118,7 +118,6 @@ code {
     }
     @media (max-width: 600px) {
       flex-direction: column;
-
       form {
         h3 {
           font-size: 24px;
@@ -126,6 +125,9 @@ code {
         input {
           font-size: 20px;
         }
+      }
+      .followers-btn {
+        margin-bottom: 20px;
       }
     }
   }
@@ -177,10 +179,17 @@ code {
     height: 100%;
 
     img {
-      width: 280px;
-      height: 280px;
+      width: 250px;
+      height: 250px;
       border-bottom-right-radius: 50px;
       border-bottom-left-radius: 50px;
+      margin-top: 1px;
+      box-shadow: 0px -15px 15px -15px #111;
+
+      @media (max-width: 500px) {
+        width: 150px;
+        height: 150px;
+      }
     }
     .info {
       margin-bottom: 20px;
