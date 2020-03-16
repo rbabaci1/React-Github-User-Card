@@ -3,7 +3,7 @@ import GitHubCalendar from 'github-calendar';
 
 export default class UserCard extends Component {
   componentDidMount() {
-    GitHubCalendar('.calendar', this.state.currUsername, {
+    GitHubCalendar('.calendar', this.props.userData.login, {
       responsive: true
     });
   }
