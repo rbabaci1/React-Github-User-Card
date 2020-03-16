@@ -22,16 +22,19 @@ export default class App extends Component {
   };
   // 2) set the userData with the fetched data from  (1)
   setUserData = username => {
-    this.fetchUserData(username)
-      .then(userInfo =>
-        userInfo.login
-          ? this.setState({
-              userData: userInfo,
-              dataReceived: true
-            })
-          : this.setState({ dataReceived: false })
-      )
-      .catch(error => console.error(error));
+    // only fetch if the username input is different than the previous one
+    if (username !== this.state.userData.login) {
+      this.fetchUserData(username)
+        .then(userInfo =>
+          userInfo.login
+            ? this.setState({
+                userData: userInfo,
+                dataReceived: true
+              })
+            : this.setState({ dataReceived: false })
+        )
+        .catch(error => console.error(error));
+    }
   };
 
   // 3) get the followers list
@@ -43,12 +46,16 @@ export default class App extends Component {
   };
 
   // 4) get the data for each follower in the list returned from  (3)
-  fetchFollowersData = () =>
-    this.fetchFollowers()
-      .then(followersList =>
-        followersList.map(follower => this.setFollowersData(follower.login))
-      )
-      .catch(error => console.error(error));
+  fetchFollowersData = () => {
+    // only fetch if there's no followersData
+    if (this.state.followersData.length === 0) {
+      this.fetchFollowers()
+        .then(followersList =>
+          followersList.map(follower => this.setFollowersData(follower.login))
+        )
+        .catch(error => console.error(error));
+    }
+  };
 
   // 5) set the followersData with the fetch data of each follower from  (4)
   setFollowersData = followerUsername =>
@@ -67,16 +74,6 @@ export default class App extends Component {
     if (prevState.userData.login !== this.state.userData.login) {
       this.setUserData(this.state.userData.login);
     }
-  }
-
-  shouldComponentUpdate(...args) {
-    const nextState = args[1];
-
-    // Do not render until the FollowersData list is fully collected
-    if (nextState.fetchFollowers.length === this.state.userData.followers) {
-      return true;
-    }
-    return false;
   }
 
   render() {

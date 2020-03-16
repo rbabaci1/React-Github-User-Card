@@ -8,7 +8,7 @@ import {
   Button
 } from 'reactstrap';
 
-export default function UserCard({ userData, renderFollowerAsUser }) {
+export default function FollowerCard({ userData, renderFollowerAsUser }) {
   const [collapse, setCollapse] = useState(false);
   const [status, setStatus] = useState('Show Info');
 
