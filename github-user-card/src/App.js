@@ -38,7 +38,7 @@ export default class App extends Component {
   };
 
   // 3) get the followers list
-  fetchFollowers = async () => {
+  getFollowersList = async () => {
     const response = await fetch(this.state.userData.followers_url);
     const followersList = await response.json();
 
@@ -49,7 +49,7 @@ export default class App extends Component {
   fetchFollowersData = () => {
     // only fetch if there's no followersData
     if (this.state.followersData.length === 0) {
-      this.fetchFollowers()
+      this.getFollowersList()
         .then(followersList =>
           followersList.map(follower => this.setFollowersData(follower.login))
         )
