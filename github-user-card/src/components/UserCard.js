@@ -1,42 +1,66 @@
-import React from 'react';
+import React, { Component } from 'react';
+import GitHubCalendar from 'github-calendar';
 
-export default function UserCard({ userData }) {
-  return (
-    <div className='user-card'>
-      <img src={userData.avatar_url} alt='user avatar' />
+export default class UserCard extends Component {
+  componentDidMount() {
+    GitHubCalendar('.calendar', this.state.currUsername, {
+      responsive: true
+    });
+  }
 
-      <section className='info'>
-        <h4>{userData.name}</h4>
-        <p>
-          <span>username: </span>
-          {userData.login}
-        </p>
-        <p>
-          <span>Location: </span>
-          {userData.location}
-        </p>
-        <p>
-          <span>Profile: </span>
-          <a href={userData.html_url} target='blank'>
-            GitHub page
-          </a>{' '}
-        </p>
+  componentDidUpdate(...args) {
+    const prevUsername = args[0].userData.login;
+    const currUsername = this.props.userData.login;
 
-        <p>
-          <span>Followers: </span>
-          {userData.followers}
-        </p>
+    if (prevUsername !== currUsername) {
+      GitHubCalendar('.calendar', currUsername, {
+        responsive: true
+      });
+    }
+  }
 
-        <p>
-          <span>Following: </span>
-          {userData.following}
-        </p>
+  render() {
+    return (
+      <>
+        <div className='user-card'>
+          <img src={this.props.userData.avatar_url} alt='user avatar' />
 
-        <p>
-          <span>Bio: </span>
-          {userData.bio}
-        </p>
-      </section>
-    </div>
-  );
+          <section className='info'>
+            <h4>{this.props.userData.name}</h4>
+            <p>
+              <span>username: </span>
+              {this.props.userData.login}
+            </p>
+            <p>
+              <span>Location: </span>
+              {this.props.userData.location}
+            </p>
+            <p>
+              <span>Profile: </span>
+              <a href={this.props.userData.html_url} target='blank'>
+                GitHub page
+              </a>{' '}
+            </p>
+
+            <p>
+              <span>Followers: </span>
+              {this.props.userData.followers}
+            </p>
+
+            <p>
+              <span>Following: </span>
+              {this.props.userData.following}
+            </p>
+
+            <p>
+              <span>Bio: </span>
+              {this.props.userData.bio}
+            </p>
+          </section>
+        </div>
+
+        <div className='calendar' />
+      </>
+    );
+  }
 }

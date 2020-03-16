@@ -119,6 +119,8 @@ export default class App extends Component {
 
         {Object.keys(userData).length > 0 && <UserCard userData={userData} />}
 
+        {followersData.length > 0 && <h1 className='followers'>Followers:</h1>}
+
         <div className='followers-cards'>
           {followersData.map(follower => (
             <FollowerCard
