@@ -118,7 +118,7 @@ export default class App extends Component {
         {!this.state.dataReceived && (
           <span className='server-error'>
             Sorry, we got blocked!! Too many request to the IPA in the last
-            hour.
+            hour. Try again in a little bit.
           </span>
         )}
 
