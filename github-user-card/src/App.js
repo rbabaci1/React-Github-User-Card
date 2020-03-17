@@ -51,7 +51,11 @@ export default class App extends Component {
     if (this.state.followersData.length === 0) {
       this.getFollowersList()
         .then(followersList =>
-          followersList.map(follower => this.setFollowersData(follower.login))
+          followersList
+            ? followersList.map(follower =>
+                this.setFollowersData(follower.login)
+              )
+            : this.setState({ dataReceived: false })
         )
         .catch(error => console.error(error));
     }
@@ -113,7 +117,8 @@ export default class App extends Component {
 
         {!this.state.dataReceived && (
           <span className='server-error'>
-            The server is down, please try again later!
+            Sorry, we got blocked!! Too many request to the IPA in the last
+            hour.
           </span>
         )}
 

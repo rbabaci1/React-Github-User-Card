@@ -19,10 +19,12 @@ code {
   color: #fff;
 
   .server-error {
-    text-align: start;
     display: block;
     margin-left: 20px;
-    color: #fa7806;
+    color: #72f7f0;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 0.5px;
   }
 
   .header {
@@ -85,7 +87,7 @@ code {
         border: none;
         background: inherit;
         padding: 4px 7px;
-        color: #dfab03;
+        color: #f1c944;
         outline: 0;
       }
     }
