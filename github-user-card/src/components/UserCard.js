@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import GitHubCalendar from 'github-calendar';
 
+import GitHubCalendar from 'react-github-calendar';
 export default class UserCard extends Component {
+  state = {
+    username: '',
+  };
   componentDidMount() {
-    GitHubCalendar('.calendar', this.props.userData.login, {
-      responsive: true
-    });
+    this.setState({ username: this.props.userData.login });
   }
 
   componentDidUpdate(...args) {
@@ -13,9 +14,7 @@ export default class UserCard extends Component {
     const currUsername = this.props.userData.login;
 
     if (prevUsername !== currUsername) {
-      GitHubCalendar('.calendar', currUsername, {
-        responsive: true
-      });
+      this.setState({ username: currUsername });
     }
   }
 
@@ -59,7 +58,13 @@ export default class UserCard extends Component {
           </section>
         </div>
 
-        <div className='calendar' />
+        {this.state.username && (
+          <GitHubCalendar
+            username={this.state.username}
+            fontSize={16}
+            blockSize={18}
+          />
+        )}
       </>
     );
   }

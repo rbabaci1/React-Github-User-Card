@@ -1,6 +1,6 @@
 import React from 'react';
 
-import logo from '../images/githubLogo.png';
+import logo from '../images/githublogo.png';
 
 export default function Header() {
   return (
